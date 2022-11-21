@@ -5,13 +5,13 @@ node {
     properties([
         buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5')),
         disableConcurrentBuilds(),
-        [$class: 'GithubProjectProperty', displayName: '', projectUrlStr: 'https://github.com/gouthamchilakala/PetClinic.git/'],
+        [$class: 'GithubProjectProperty', displayName: '', projectUrlStr: 'https://github.com/Sappireddyraviteja/PetClinic.git/'],
         [$class: 'ThrottleJobProperty', categories: [], limitOneJobWithMatchingParams: false, maxConcurrentPerNode: 0, maxConcurrentTotal: 0, paramsToUseForLimit: '', throttleEnabled: true, throttleOption: 'project'],
         pipelineTriggers([githubPush()]),
         parameters([string(defaultValue: 'DEV', description: 'env name', name: 'environment', trim: false)])
     ])
     stage('Checkout SCM'){
-        git branch: 'master', credentialsId: 'github-creds', url: 'https://github.com/gouthamchilakala/PetClinic'
+        git branch: 'master', credentialsId: 'github-creds', url: 'https://github.com/Sappireddyraviteja/PetClinic.git'
     }
     stage('Read praram'){
         echo "The environment chosen during the Job execution is ${params.environment}"
@@ -38,7 +38,7 @@ node {
     }
     stage('Smoke Test'){
         sleep 5
-        sh "curl ec2-52-70-39-48.compute-1.amazonaws.com:8080/petclinic"
+        sh "curl 65.2.130.29:8080/petclinic"
     }
 
 }
