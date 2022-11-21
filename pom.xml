@@ -275,8 +275,7 @@
 
     <!-- Maven plugin versions are mentioned in order to guarantee the build reproducibility in the long term -->
     <build>
-        <defaultGoal>install</defaultGoal>
-        <plugin-prefix>:<-test> or <plugin-group-id>:<plugin-artifact-id>[:<plugin-version>]:<goal>
+        <-test>install</-test>
         <testResources>
             <testResource>
                 <!-- declared explicitly so Spring config files can be placed next to their corresponding JUnit test class  -->
