@@ -275,7 +275,7 @@
 
     <!-- Maven plugin versions are mentioned in order to guarantee the build reproducibility in the long term -->
     <build>
-        <defaultgoal>install<defaultgoal>
+        <defaultGoal>install<defaultGoal>
         <defaultGoal>package</defaultGoal>
         <testResources>
             <testResource>
